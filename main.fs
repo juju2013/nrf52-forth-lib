@@ -31,7 +31,7 @@ include lib/ws2812.fs
 \ random pixel animation
 : rtest
   begin
-    0 vv
+    0 0 0 ws.fill
     rcolor wait rng@ ws.pixel
     rcolor wait rng@ ws.pixel
     rcolor wait rng@ ws.pixel
@@ -39,7 +39,8 @@ include lib/ws2812.fs
     ws.display
     1024 0 do wait loop
   key? until
-  0 vv
+  0 0 0 ws.fill ws.display
+  ws.deinit
 ;
 
 
