@@ -6,10 +6,12 @@ This is a simple library in [Forth](http://mecrisp.sourceforge.net/) to drive mo
 The covered, totally or partially, modules and peripherals are:
 
  * io.fs
-  * GPIO: Pin's Configuration
-  * GPIOTE: Connect Task and Event
-  * PPI: Programmable Peripheral Interconnect
-  * EGU: Event Generator Unit
+ 
+   * GPIO: Pin's Configuration
+   * GPIOTE: Connect Task and Event
+   * PPI: Programmable Peripheral Interconnect
+   * EGU: Event Generator Unit
+  
  * rng.fs: Random Number Generator
  * nvic.fs: Nested Vectored Interrupt Controller
  * timer.fs: Timer Unit
