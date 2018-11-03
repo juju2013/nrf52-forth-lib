@@ -57,13 +57,13 @@ io.gpiote $510  + constant io.gpiote.config0
 
 \ task registers addr
 : &io.task.set ( gpiote# -- addr )
-  2 lshift $30 + io.gpiote + 1-foldable
+  2 lshift $30 + io.gpiote + 
 ;
 : &io.task.clr ( gpiote# -- addr )
-  2 lshift $60 + io.gpiote + 1-foldable
+  2 lshift $60 + io.gpiote + 
 ;
 : &io.task.out ( gpiote# -- addr )
-  2 lshift io.gpiote + 1-foldable
+  2 lshift io.gpiote + 
 ;
 
 \ do task
@@ -80,7 +80,7 @@ io.gpiote $510  + constant io.gpiote.config0
 
 \ event register address
 : &io.evt ( evt# -- addr )
-  2 lshift io.gpiote + $100 + 1-foldable
+  2 lshift io.gpiote + $100 + 
 ;
 
 \ trigger event
@@ -93,12 +93,12 @@ $40014000 constant io.EGU0
 
 \ get EGU base
 : &io.EGU ( group -- addr )
-  12 lshift io.EGU0 + 1-foldable
+  12 lshift io.EGU0 + 
 ;
 
 \ trigger register's addr
 : &io.EGU! ( event group -- addr ) 
-  &io.EGU swap 2 lshift + 2-foldable
+  &io.EGU swap 2 lshift + 
 ;
 
 \ set trigger
@@ -108,7 +108,7 @@ $40014000 constant io.EGU0
 
 \ event register's addr
 : &io.EGU@ ( event group -- addr ) 
-  &io.EGU! $100 + 2-foldable
+  &io.EGU! $100 + 
 ;
 
 \ get event 
@@ -144,13 +144,13 @@ $4001f000     constant    io.ppi
 
 \ channels addr
 : &io.eep ( chen# -- addr )
-  3 lshift io.ppi + $510 + 1-foldable
+  3 lshift io.ppi + $510 + 
 ;
 : &io.tep ( chen# -- addr )
-  3 lshift io.ppi + $514 + 1-foldable
+  3 lshift io.ppi + $514 + 
 ;
 : &io.ftep ( chen# -- addr )
-  2 lshift io.ppi + $910 + 1-foldable
+  2 lshift io.ppi + $910 + 
 ;
 
 \ configure a ppi connection

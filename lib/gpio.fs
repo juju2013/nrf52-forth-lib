@@ -3,9 +3,10 @@
 \    BSD licensed, See LICENSE
 
 \ turn a bit position into a single-bit mask
-: bit ( u -- u )  
-  1 swap lshift  1-foldable 
-;
+: bit ( u -- u )  1 swap lshift  1-foldable ;
+: wait 500 0 do nop loop ;
+
+
 $50000000   module gpio
   $504      register out
   $508      register outset
@@ -37,3 +38,10 @@ $50000000   module gpio
 : ioc ( pin# -- )
   bit gpio outclr !
 ;
+
+: iox ( pin# -- )
+  dup bit gpio out @ and 0= if ios else ioc then
+;
+
+: bb ( pin -- ) dup gpio.outpd swap &pin_cnf ! begin dup iox wait key? until drop ;
+
